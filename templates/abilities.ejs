@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Abilities</title>
+</head>
+    
+<body>
+    
+    <script>
+        let lowerName = "<%- name %>";
+        let url = `https://pokeapi.co/api/v2/pokemon/${lowerName.toLowerCase()}`;
+        
+        let pokeName = "<%- name %>";
+        
+        let pokeContainer = document.createElement('div');
+        
+        let header = document.createElement('h1');
+        
+        let notFound = document.createElement('p');
+        notFound.innerText = "Not found. Click home and try again."
+        
+        header.innerText = `${pokeName}'s abilities include: `;
+        
+        let abilitiesList = document.createElement('ul');
+        
+        fetch(url)
+            .then(response => response.json())
+            .then(pokemon =>
+            getAbilities(pokemon.abilities, abilitiesList))
+   
+        function getAbilities(abilities, ul){
+            abilities.forEach(function(a) {
+                let currentAbility = document.createElement('li');
+                currentAbility.innerText = a['ability']['name'];
+                ul.append(currentAbility);
+                console.log(currentAbility);
+            })
+        }
+        
+        pokeContainer.append(abilitiesList);
+        let cont = document.getElementById("container");
+        
+        document.body.appendChild(header);
+        document.body.insertBefore(pokeContainer, cont);
+    
+        
+        let hr = document.createElement('hr');
+        document.body.appendChild(hr);
+        
+        let a = document.createElement('a');
+        let linkText = document.createTextNode("HOME");
+        a.appendChild(linkText);
+        a.title = "HOME";
+        a.href = "/";
+        document.body.appendChild(a);
+    </script>
+
+    <div id=container></div>
+</body>
+
+</html>

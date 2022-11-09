@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Result</title>
+</head>
+
+<body>
+	<h1 style="color:red;">Display Pokemon Names that have been Entered</h1>
+    <form action="<%- reqProt %>://<%- reqUrl %>/pokemonDelete" method="post">
+    
+	   <div>
+		  <%- pokemonTable %>
+	   </div>
+        <br>
+    
+        <input type="submit" value="Delete all entries"/><br><br>
+    
+        <a href="/"><u>HOME</u></a>
+    </form>
+</body>
+
+</html>

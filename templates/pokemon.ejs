@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Request</title>
+</head>
+    
+<body>
+	<h1 style="color:red;">Pokemon Abilities Request</h1>
+	<form action="<%- reqProt %>://<%- reqUrl %>/pokemonAbilities" method="post">
+		<fieldset>
+			<label><strong>Pokemon name: </strong><input type="text" name="name"></label><br><br>
+        </fieldset>
+        
+        <br>
+		<input type="reset" />
+		<input type="submit" value="Submit Pokemon"/>
+        <hr>
+        
+        <a href="/"><u>HOME</u></a>
+        
+	</form>
+</body>
+
+</html>
